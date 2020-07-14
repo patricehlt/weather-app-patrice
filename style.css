@@ -1,0 +1,172 @@
+html {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.container {
+  background-image: linear-gradient(to top, #ffecd2 0%, #fcb69f 100%);
+  padding: 20px;
+  margin: 50px;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Elsie", cursive;
+  padding: 0px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 13px;
+  margin: 0 auto;
+}
+
+.conditionstoday {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 0px;
+  margin: 0 auto;
+  color: #d63447;
+}
+
+.col-6 {
+  padding: 5px;
+  text-align: right;
+  font-family: "Quicksand", sans-serif;
+}
+
+#todayTemp {
+  position: relative;
+  left: -6px;
+}
+
+#humidity {
+  display: inline;
+}
+
+#wind {
+  display: inline;
+}
+
+.conditions {
+  position: relative;
+  top: 10px;
+  text-align: left;
+  font-family: "Quicksand", sans-serif;
+  font-size: 13px;
+  padding: 5px;
+}
+
+.changeMetric {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 8px 0px;
+}
+
+.currentLocation {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 8px 0px;
+}
+
+.btn-outline-light {
+  margin: 0px 1px;
+  padding: 5px 10px;
+  border: 1px solid #ee8572;
+  background-color: transparent;
+  color: #ee8572;
+}
+
+.btn-outline-light:hover {
+  border: 1px solid #d63447;
+  background-color: transparent;
+  color: #d63447;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.fa-cloud-sun {
+  font-size: 40px;
+  color: white;
+}
+
+.forecast .fa-cloud-sun {
+  font-size: 30px;
+  color: #ee8572;
+}
+
+.form-group {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  position: relative;
+  left: 5px;
+  top: 1px;
+  border-radius: 5px;
+  border: 1px solid #d63447;
+  background-color: #d63447;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:hover {
+  border: 1px solid #d63447;
+  background-color: transparent;
+  color: #d63447;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.forecast {
+  display: flex;
+  justify-content: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+.quicklinks {
+  text-align: center;
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  margin: 5px;
+}
+
+.shortcuts {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.btn-secondary {
+  display: inline;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ee8572;
+  background-color: transparent;
+  color: #ee8572;
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border: 1px solid #d63447;
+  background-color: transparent;
+  color: #d63447;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
