@@ -170,3 +170,9 @@ h2 {
   transition: all 200ms ease-in-out;
   cursor: pointer;
 }
+
+.credit {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 10px;
+}
