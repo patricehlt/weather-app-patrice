@@ -64,6 +64,8 @@ function showWeather(response) {
 
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = `${Math.round(response.data.wind.speed)} mph`;
+
+  celciusTemperature = response.data.main.temp;
 }
 
 //Search Bar//
@@ -98,3 +100,23 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#geolocation");
 button.addEventListener("click", getCurrentPosition);
+
+//Metric Conversion//
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#todayTemp");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°F`;
+}
+
+function displayCelciusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#todayTemp");
+  temperatureElement.innerHTML = `${Math.round(celciusTemperature)}°C`;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", displayCelciusTemp);
