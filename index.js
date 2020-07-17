@@ -54,7 +54,7 @@ function showWeather(response) {
   cityElement.innerHTML = response.data.name;
 
   let tempElement = document.querySelector("#todayTemp");
-  tempElement.innerHTML = `${Math.round(response.data.main.temp)}°C`;
+  tempElement.innerHTML = `${Math.round(response.data.main.temp)}`;
 
   let descElement = document.querySelector(".conditionstoday");
   descElement.innerHTML = response.data.weather[0].description;
@@ -105,14 +105,18 @@ button.addEventListener("click", getCurrentPosition);
 function displayFahrenheitTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#todayTemp");
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°F`;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}`;
 }
 
 function displayCelciusTemp(event) {
   event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#todayTemp");
-  temperatureElement.innerHTML = `${Math.round(celciusTemperature)}°C`;
+  temperatureElement.innerHTML = `${Math.round(celciusTemperature)}`;
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
