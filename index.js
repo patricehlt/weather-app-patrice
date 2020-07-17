@@ -65,6 +65,44 @@ function showWeather(response) {
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = `${Math.round(response.data.wind.speed)} mph`;
 
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = response.data.weather[0].icon;
+  if (response.data.weather[0].icon === "01d") {
+    iconElement.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else if (response.data.weather[0].icon === "02d") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+  } else if (response.data.weather[0].icon === "01d") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+  } else if (response.data.weather[0].icon === "03d") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+  } else if (response.data.weather[0].icon === "04d") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+  } else if (response.data.weather[0].icon === "04n") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+  } else if (response.data.weather[0].icon === "09d") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+  } else if (response.data.weather[0].icon === "10d") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+  } else if (response.data.weather[0].icon === "11d" || "10n") {
+    iconElement.innerHTML = `<i class="fas fa-poo-storm"></i>`;
+  } else if (response.data.weather[0].icon === "13d" || "13n") {
+    iconElement.innerHTML = `<i class="fas fa-snowflake"></i>`;
+  } else if (response.data.weather[0].icon === "50d" || "50n") {
+    iconElement.innerHTML = `<i class="fas fa-smog"></i>`;
+  } else if (response.data.weather[0].icon === "01n") {
+    iconElement.innerHTML = `<i class="fas fa-moon"></i>`;
+  } else if (response.data.weather[0].icon === "02n") {
+    iconElement.innerHTML = '<i class="fas fa-cloud-moon"></i>';
+  } else if (response.data.weather[0].icon === "03n") {
+    iconElement.innerHTML = `<i class="fas fa-cloud"></i>`;
+  } else if (response.data.weather[0].icon === "04n") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon"></i>`;
+  } else if (response.data.weather[0].icon === "09n") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain"></i>`;
+  } else if (response.data.weather[0].icon === "10n") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain"></i>`;
+  }
+
   celciusTemperature = response.data.main.temp;
 }
 
