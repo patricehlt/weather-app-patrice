@@ -47,6 +47,19 @@ let months = [
 let month = months[now.getMonth()];
 h2.innerHTML = `${day}, ${date} ${month} ${year}, ${hour}:${minutes}`;
 
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hour}:${minutes}`;
+}
+
 //Current Conditions//
 
 function showWeather(response) {
@@ -68,60 +81,62 @@ function showWeather(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.innerHTML = response.data.weather[0].icon;
   if (response.data.weather[0].icon === "01d") {
-    iconElement.innerHTML = `<i class="fas fa-sun"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "02d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "01d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "03d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "04d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "04n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "09d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun-rain weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "10d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-showers-heavy weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "11d" || "10n") {
-    iconElement.innerHTML = `<i class="fas fa-poo-storm"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "13d" || "13n") {
-    iconElement.innerHTML = `<i class="fas fa-snowflake"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-snowflake weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "50d" || "50n") {
-    iconElement.innerHTML = `<i class="fas fa-smog"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-smog weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "01n") {
-    iconElement.innerHTML = `<i class="fas fa-moon"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-moon weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "02n") {
-    iconElement.innerHTML = '<i class="fas fa-cloud-moon"></i>';
+    iconElement.innerHTML =
+      '<i class="fas fa-cloud-moon weather-forecast-icon"></i>';
   } else if (response.data.weather[0].icon === "03n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud weather-forecast-icon"></i>`;
   } else if (response.data.weather[0].icon === "04n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-moon"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon weather-forecast-icon"></i>`;
   } else if (response.data.weather[0].icon === "09n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain weather-forecast-icon"></i>`;
   } else if (response.data.weather[0].icon === "10n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain weather-forecast-icon"></i>`;
   }
 
   celciusTemperature = response.data.main.temp;
 }
 
 //Search Bar//
-
-function weatherSearch() {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
-  let city = `${searchInput.value}`;
+function search(city) {
   let apiKey = "d297bcf4622bfa19fd137f5e6df72d1f";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-  let h1 = document.querySelector("h1");
-  if (searchInput.value) {
-    h1.innerHTML = `${city}`;
-  }
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
 }
-let searchForm = document.querySelector("#search-bar");
-searchForm.addEventListener("submit", weatherSearch);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-input");
+  search(cityInput.value);
+}
+
+search("London");
+
+let form = document.querySelector("#search-bar");
+form.addEventListener("submit", handleSubmit);
 
 //Current Location//
 function showPosition(position) {

@@ -24,21 +24,13 @@
 
   <body>
     <div class="container">
-      <h1 id="city">
-        London
-      </h1>
-      <h2>
-        Friday, 12 May 2020, 12:00
-      </h2>
-      <p class="conditionstoday">
-        Mostly cloudy
-      </p>
+      <h1 id="city"></h1>
+      <h2></h2>
+      <p class="conditionstoday"></p>
       <i id="icon"> </i>
       <div class="row">
         <div class="col-6">
-          <span id="todayTemp">
-            20
-          </span>
+          <span id="todayTemp"> </span>
           <span id="changeMetric">
             <a href="#" id="celcius" class="active">°C</a> |
             <a href="#" id="fahrenheit">°F</a>
@@ -58,6 +50,12 @@
         </div>
       </div>
 
+      <div class="currentLocation">
+        <button type="button" class="btn btn-outline-light" id="geolocation">
+          Current Location 📍
+        </button>
+      </div>
+
       <form class="form-group" id="search-bar">
         <div class="form w-50">
           <input
@@ -68,6 +66,7 @@
             id="search-input"
           />
         </div>
+
         <input
           type="submit"
           value="Go"
@@ -76,73 +75,9 @@
         />
       </form>
 
-      <div class="currentLocation">
-        <button type="button" class="btn btn-outline-light" id="geolocation">
-          📍Current Location
-        </button>
-      </div>
+      <div class="row forecast" id="forecast"></div>
 
-      <div class="row forecast">
-        <div class="col-1">
-          <p>
-            <strong>
-              Mon
-            </strong>
-            <br />
-            <i class="fas fa-cloud-sun"></i>
-            <br />
-            20°C
-          </p>
-        </div>
-
-        <div class="col-1">
-          <p>
-            <strong>
-              Tues
-            </strong>
-            <br />
-            <i class="fas fa-cloud-sun"></i>
-            <br />
-            20°C
-          </p>
-        </div>
-
-        <div class="col-1">
-          <p>
-            <strong>
-              Wed
-            </strong>
-            <br />
-            <i class="fas fa-cloud-sun"></i>
-            <br />
-            20°C
-          </p>
-        </div>
-
-        <div class="col-1">
-          <p>
-            <strong>
-              Thur
-            </strong>
-            <br />
-            <i class="fas fa-cloud-sun"></i>
-            <br />
-            20°C
-          </p>
-        </div>
-
-        <div class="col-1">
-          <p>
-            <strong>
-              Fri
-            </strong>
-            <br />
-            <i class="fas fa-cloud-sun"></i>
-            <br />
-            20°C
-          </p>
-        </div>
-      </div>
+      <br />
 
       <p class="quicklinks">
         You could be here:
