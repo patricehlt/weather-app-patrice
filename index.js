@@ -120,11 +120,80 @@ function showWeather(response) {
   celciusTemperature = response.data.main.temp;
 }
 
+//Forecast//
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+          <div id="forecastTime">
+          <strong>
+            ${formatHours(forecast.dt * 1000)}
+          </strong>
+          </div>
+          ${getIcon(forecast.weather[0].icon)}
+          <br />
+          <div id="forecastTemp">
+          <strong>
+          ${Math.round(forecast.main.temp_max)}°
+          </strong>
+          ${Math.round(forecast.main.temp_min)}°
+          </div>
+        </div>
+    `;
+
+    function getIcon(icon) {
+      let iconHTML = "";
+      if (icon === "01d") {
+        iconHTML = `<i class="fas fa-sun weather-forecast-icon"></i>`;
+      } else if (icon === "02d") {
+        iconHTML = `<i class="fas fa-cloud-sun weather-forecast-icon"></i>`;
+      } else if (icon === "03d") {
+        iconHTML = `<i class="fas fa-cloud-sun weather-forecast-icon"></i>`;
+      } else if (icon === "04d") {
+        iconHTML = `<i class="fas fa-cloud-sun weather-forecast-icon"></i>`;
+      } else if (icon === "09d") {
+        iconHTML = `<i class="fas fa-cloud-sun-rain weather-forecast-icon"></i>`;
+      } else if (icon === "10d") {
+        iconHTML = `<i class="fas fa-cloud-showers-heavy weather-forecast-icon"></i>`;
+      } else if (icon === "11d" || "10n") {
+        iconHTML = `<i class="fas fa-cloud-sun weather-forecast-icon"></i>`;
+      } else if (icon === "13d" || "13n") {
+        iconHTML = `<i class="fas fa-snowflake weather-forecast-icon"></i>`;
+      } else if (icon === "50d" || "50n") {
+        iconHTML = `<i class="fas fa-smog weather-forecast-icon v"></i>`;
+      } else if (icon === "01n") {
+        iconHTML = `<i class="fas fa-moon weather-forecast-icon"></i>`;
+      } else if (icon === "02n") {
+        iconHTML = '<i class="fas fa-cloud-moon weather-forecast-icon"></i>';
+      } else if (icon === "03n") {
+        iconHTML = `<i class="fas fa-cloud weather-forecast-icon"></i>`;
+      } else if (icon === "04n") {
+        iconHTML = `<i class="fas fa-cloud-moon weather-forecast-icon"></i>`;
+      } else if (icon === "09n") {
+        iconHTML = `<i class="fas fa-cloud-moon-rain weather-forecast-icon"></i>`;
+      } else if (icon === "10n") {
+        iconHTML = `<i class="fas fa-cloud-moon-rain weather-forecast-icon"></i>`;
+      } else {
+        iconHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" />`;
+      }
+      return iconHTML;
+    }
+  }
+}
+
 //Search Bar//
 function search(city) {
   let apiKey = "d297bcf4622bfa19fd137f5e6df72d1f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
 }
 
 function handleSubmit(event) {

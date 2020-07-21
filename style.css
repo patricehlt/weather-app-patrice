@@ -34,6 +34,14 @@ h2 {
   color: #d63447;
 }
 
+#icon {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 40px;
+  color: white;
+}
+
 .col-6 {
   padding: 5px;
   text-align: right;
@@ -42,7 +50,8 @@ h2 {
 
 #todayTemp {
   position: relative;
-  left: -6px;
+  font-size: 35px;
+  color: #d63447;
 }
 
 #humidity {
@@ -62,11 +71,20 @@ h2 {
   padding: 5px;
 }
 
-.changeMetric {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 8px 0px;
+#changeMetric {
+  position: relative;
+  top: -15px;
+  right: 3px;
+  font-size: 15px;
+}
+
+#changeMetric .active {
+  color: #000000;
+  cursor: default;
+}
+
+#changeMetric .active:hover {
+  text-decoration: none;
 }
 
 .currentLocation {
@@ -74,6 +92,10 @@ h2 {
   justify-content: center;
   margin: 0 auto;
   padding: 8px 0px;
+}
+
+#geolocation {
+  font-size: 10px;
 }
 
 .btn-outline-light {
@@ -93,20 +115,11 @@ h2 {
   cursor: pointer;
 }
 
-.fa-cloud-sun {
-  font-size: 40px;
-  color: white;
-}
-
-.forecast .fa-cloud-sun {
-  font-size: 30px;
-  color: #ee8572;
-}
-
 .form-group {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  padding: 10px 0px;
 }
 
 .btn-primary {
@@ -135,19 +148,23 @@ h2 {
   display: flex;
   justify-content: center;
   font-family: "Quicksand", sans-serif;
-}
-
-.quicklinks {
+  padding: 10px 20px;
   text-align: center;
-  font-size: 14px;
-  font-family: "Quicksand", sans-serif;
-  margin: 5px;
 }
 
-.shortcuts {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
+#forecastTime {
+  font-size: 13px;
+  text-align: center;
+}
+
+.weather-forecast-icon {
+  font-size: 30px;
+  color: #ee8572;
+}
+
+#forecastTemp {
+  font-size: 13px;
+  text-align: center;
 }
 
 .btn-secondary {
