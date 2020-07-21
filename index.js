@@ -84,20 +84,16 @@ function showWeather(response) {
     iconElement.innerHTML = `<i class="fas fa-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "02d") {
     iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
-  } else if (response.data.weather[0].icon === "01d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
-  } else if (response.data.weather[0].icon === "03d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
+  } else if (response.data.weather[0].icon === "03d" || "03n") {
+    iconElement.innerHTML = `<i class="fas fa-cloud weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "04d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
-  } else if (response.data.weather[0].icon === "04n") {
     iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "09d") {
     iconElement.innerHTML = `<i class="fas fa-cloud-sun-rain weather-main-icon"></i>`;
-  } else if (response.data.weather[0].icon === "10d") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-showers-heavy weather-main-icon"></i>`;
-  } else if (response.data.weather[0].icon === "11d" || "10n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-sun weather-main-icon"></i>`;
+  } else if (response.data.weather[0].icon === "10d" || "10n") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-rain weather-main-icon"></i>`;
+  } else if (response.data.weather[0].icon === "11d" || "11n") {
+    iconElement.innerHTML = `<i class="fas fa-bolt weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "13d" || "13n") {
     iconElement.innerHTML = `<i class="fas fa-snowflake weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "50d" || "50n") {
@@ -105,18 +101,12 @@ function showWeather(response) {
   } else if (response.data.weather[0].icon === "01n") {
     iconElement.innerHTML = `<i class="fas fa-moon weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "02n") {
-    iconElement.innerHTML =
-      '<i class="fas fa-cloud-moon weather-forecast-icon"></i>';
-  } else if (response.data.weather[0].icon === "03n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud weather-forecast-icon"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon weather-main-icon"></i>`;
   } else if (response.data.weather[0].icon === "04n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-moon weather-forecast-icon"></i>`;
-  } else if (response.data.weather[0].icon === "09n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain weather-forecast-icon"></i>`;
-  } else if (response.data.weather[0].icon === "10n") {
-    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain weather-forecast-icon"></i>`;
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon weather-main-icon"></i>`;
+  } else if (response.data.weather[0].icon === "09d") {
+    iconElement.innerHTML = `<i class="fas fa-cloud-moon-rain weather-main-icon"></i>`;
   }
-
   celciusTemperature = response.data.main.temp;
 }
 
@@ -152,34 +142,28 @@ function displayForecast(response) {
         iconHTML = `<i class="fas fa-sun weather-forecast-icon"></i>`;
       } else if (icon === "02d") {
         iconHTML = `<i class="fas fa-cloud-sun weather-forecast-icon"></i>`;
-      } else if (icon === "03d") {
-        iconHTML = `<i class="fas fa-cloud-sun weather-forecast-icon"></i>`;
+      } else if (icon === "03d" || "03n") {
+        iconHTML = `<i class="fas fa-cloud weather-forecast-icon"></i>`;
       } else if (icon === "04d") {
         iconHTML = `<i class="fas fa-cloud-sun weather-forecast-icon"></i>`;
       } else if (icon === "09d") {
         iconHTML = `<i class="fas fa-cloud-sun-rain weather-forecast-icon"></i>`;
-      } else if (icon === "10d") {
-        iconHTML = `<i class="fas fa-cloud-showers-heavy weather-forecast-icon"></i>`;
-      } else if (icon === "11d" || "10n") {
-        iconHTML = `<i class="fas fa-cloud-sun weather-forecast-icon"></i>`;
+      } else if (icon === "10d" || "10n") {
+        iconHTML = `<i class="fas fa-cloud-rain weather-forecast-icon"></i>`;
+      } else if (icon === "11d" || "11n") {
+        iconHTML = `<i class="fas fa-bolt weather-forecast-icon"></i>`;
       } else if (icon === "13d" || "13n") {
         iconHTML = `<i class="fas fa-snowflake weather-forecast-icon"></i>`;
       } else if (icon === "50d" || "50n") {
-        iconHTML = `<i class="fas fa-smog weather-forecast-icon v"></i>`;
+        iconHTML = `<i class="fas fa-smog weather-forecast-icon"></i>`;
       } else if (icon === "01n") {
         iconHTML = `<i class="fas fa-moon weather-forecast-icon"></i>`;
       } else if (icon === "02n") {
-        iconHTML = '<i class="fas fa-cloud-moon weather-forecast-icon"></i>';
-      } else if (icon === "03n") {
-        iconHTML = `<i class="fas fa-cloud weather-forecast-icon"></i>`;
+        iconHTML = `<i class="fas fa-cloud-moon weather-forecast-icon"></i>`;
       } else if (icon === "04n") {
         iconHTML = `<i class="fas fa-cloud-moon weather-forecast-icon"></i>`;
-      } else if (icon === "09n") {
+      } else if (icon === "09d") {
         iconHTML = `<i class="fas fa-cloud-moon-rain weather-forecast-icon"></i>`;
-      } else if (icon === "10n") {
-        iconHTML = `<i class="fas fa-cloud-moon-rain weather-forecast-icon"></i>`;
-      } else {
-        iconHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" />`;
       }
       return iconHTML;
     }
