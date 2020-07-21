@@ -1,10 +1,12 @@
 html {
-  width: 700px;
+  width: 600px;
   margin: 0 auto;
 }
 
 .container {
   background-image: linear-gradient(to top, #ffecd2 0%, #fcb69f 100%);
+  border: 1px solid #d63447;
+  border-radius: 5px;
   padding: 20px;
   margin: 50px;
 }
@@ -27,8 +29,8 @@ h2 {
   text-align: center;
   text-transform: uppercase;
   font-family: "Quicksand", sans-serif;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 800;
   padding: 5px 0px;
   margin: 0 auto;
   color: #d63447;
@@ -98,50 +100,11 @@ h2 {
   font-size: 10px;
 }
 
-.btn-outline-light {
-  margin: 0px 1px;
-  padding: 5px 10px;
-  border: 1px solid #ee8572;
-  background-color: transparent;
-  color: #ee8572;
-}
-
-.btn-outline-light:hover {
-  border: 1px solid #d63447;
-  background-color: transparent;
-  color: #d63447;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-  transition: all 200ms ease-in-out;
-  cursor: pointer;
-}
-
 .form-group {
   display: flex;
   justify-content: center;
   margin: 0 auto;
   padding: 10px 0px;
-}
-
-.btn-primary {
-  position: relative;
-  left: 5px;
-  top: 1px;
-  border-radius: 5px;
-  border: 1px solid #d63447;
-  background-color: #d63447;
-  color: #ffffff;
-  font-size: 14px;
-  line-height: 22px;
-  text-decoration: none;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-}
-
-.btn-primary:hover {
-  border: 1px solid #d63447;
-  background-color: transparent;
-  color: #d63447;
-  transition: all 200ms ease-in-out;
-  cursor: pointer;
 }
 
 .forecast {
